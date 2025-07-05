@@ -1,6 +1,6 @@
-python-3.11
 numpy>=1.25
 pandas>=2.0
 scikit-learn>=1.4
 tensorflow>=2.15
 keras>=3.0
+streamlit>=1.31
