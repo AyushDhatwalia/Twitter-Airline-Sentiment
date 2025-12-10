@@ -16,7 +16,7 @@ tokenizer.fit_on_texts(tweet['text'].astype(str))
 word_index = tokenizer.word_index
 
 # Load the pre-trained model with ReLU activation
-model = load_model('Python\ML\Project\TweeterSentimentAnalysis.h5')
+model = load_model('TweeterSentimentAnalysis.h5')
 
 # Function to preprocess user input
 def preprocess_text(text):
@@ -52,4 +52,5 @@ if st.button('Classify'):
     st.write(f'Prediction Score: {1-prediction[0][0]}')
 else:
     st.write('Please enter a Tweet.')
+
 
