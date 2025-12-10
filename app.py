@@ -8,7 +8,7 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 max_len = 100
 # Load the Twitter dataset word index
-tweet=pd.read_csv('Python\ML\Project\Tweets.csv')
+tweet = pd.read_csv("Tweets.csv")
 tweet = tweet.dropna(subset=['text'])
 # Tokenizer setup
 tokenizer = Tokenizer(num_words=10000)
@@ -52,3 +52,4 @@ if st.button('Classify'):
     st.write(f'Prediction Score: {1-prediction[0][0]}')
 else:
     st.write('Please enter a Tweet.')
+
