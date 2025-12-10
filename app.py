@@ -5,6 +5,7 @@ from tensorflow.keras.preprocessing import sequence
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
+from tensorflow.keras.layers import SimpleRNN
 
 max_len = 100
 # Load the Twitter dataset word index
@@ -16,8 +17,11 @@ tokenizer.fit_on_texts(tweet['text'].astype(str))
 word_index = tokenizer.word_index
 
 # Load the pre-trained model with ReLU activation
-model = load_model("TweeterSentimentAnalysis.h5", compile=False)
-
+model = load_model(
+    "TweeterSentimentAnalysis.h5",
+    compile=False,
+    custom_objects={"SimpleRNN": SimpleRNN}
+)
 # Function to preprocess user input
 def preprocess_text(text):
     text = text.lower()
@@ -52,6 +56,7 @@ if st.button('Classify'):
     st.write(f'Prediction Score: {1-prediction[0][0]}')
 else:
     st.write('Please enter a Tweet.')
+
 
 
 
